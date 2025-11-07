@@ -227,7 +227,22 @@ Protected by JWT middleware
 |--------|--------|-------------|
 | POST | /api/upload | Upload a file (requires auth, file field in form-data) |  
 
- #### Event management 
- **features:** HR can manage official events (create,edit,delete)
-Employees can view upcoming events.
+
+#### 📅 Event Management  
+**Features:** Create, view, update, and delete company events.  
+**Access Control:**  
+- HR/Admin: Create, update, delete events  
+- HR/Employees: View events  
+**Security:** Protected by JWT authentication middleware  
+
+**Endpoints:**
+
+| Method | Route | Description |
+|--------|--------|-------------|
+| POST | /api/events | Create a new event (HR/Admin only) |
+| GET | /api/events | Get all events (HR & Employees) |
+| PUT | /api/events/:id | Update an event by ID (HR/Admin only) |
+| DELETE | /api/events/:id | Delete an event by ID (HR/Admin only) |
+
+
 
