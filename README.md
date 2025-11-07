@@ -163,6 +163,9 @@ nodemon server.js
 Server running on http://localhost:3000
 
 
+Live URL:https://smartstart-backend-8afq.onrender.com
+Postman link:https://talk2dechendu-7660959.postman.co/workspace/Personal-Workspace~e694064e-5d27-43df-bd5d-d65e8565b2cb/collection/47424540-d5cccaff-e19b-4e99-a4b9-39eb02c9b2fe?action=share&source=copy-link&creator=47424540
+
 ### API Endpoints
 
 ---
@@ -244,5 +247,32 @@ Protected by JWT middleware
 | PUT | /api/events/:id | Update an event by ID (HR/Admin only) |
 | DELETE | /api/events/:id | Delete an event by ID (HR/Admin only) |
 
+
+
+
+
+## 🤝 Collaboration Overview
+
+| **Role** | **Tools / Platforms** |
+|-----------|------------------------|
+| Backend Developers | Node.js, Express.js, MongoDB, Postman |
+| Frontend Developers | JavaScript, HTML, CSS |
+| Mobile Developers | React Native / Flutter |
+| Product Designers | Figma, Unsplash, Freepik |
+| Product Managers | Jira |
+| Technical Writers | Markdown, Postman, GitHub Wiki |
+
+---
+
+## 💬 Contributors
+
+| **Team** | **Responsibilities** |
+|-----------|----------------------|
+| Backend Team | API design, database modeling, server logic |
+| Frontend Team | Dashboard UI, API integration |
+| Mobile Team | Mobile experience and accessibility |
+| Design Team | UI/UX flow and layout |
+| Product Managers | Task coordination, sprint tracking |
+| Technical Writers | Documentation and API reference |
 
 
