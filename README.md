@@ -218,8 +218,14 @@ Protected by JWT middleware
 **Features:** Upload files (documents/images)  
 **Allowed File Types:** `.jpg`, `.png`, `.pdf`, `.txt`  
 **Storage Location:** `/uploads` folder  
-**Linked to:** user who uploaded (uploadedBy)  
+**Linked to:** user who uploaded (`uploadedBy`)  
 **Security:** Protected by JWT middleware  
+
+**Endpoints:**
+
+| Method | Route | Description |
+|--------|--------|-------------|
+| POST | /api/upload | Upload a file (requires auth, file field in form-data) |  
 
  #### Event management 
  **features:** HR can manage official events (create,edit,delete)
