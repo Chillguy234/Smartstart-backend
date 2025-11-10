@@ -76,13 +76,13 @@ HR can monitor employee performance via progress endpoints.
 📁 Capstone Project HR/
 ├── 📁 Controllers/       # Business logic
 
-│   ├── eventcontroller.js
+│   ├── eventController.js
 
-│   ├── taskcontroller.js
+│   ├── taskController.js
 
-│   ├── usercontroller.js
+│   ├── userController.js
 
-│   └── progresscontroller.js
+│   └── progressController.js
 
 │
 
@@ -175,7 +175,7 @@ nodemon server.js
 Server running on http://localhost:3000
 
 
-🌐Live URL:https://smartstart-backend-8afq.onrender.com
+🌐Live URL:https://smartstart-backend-2.onrender.com
 
 Postman link:https://talk2dechendu-7660959.postman.co/workspace/Personal-Workspace~e694064e-5d27-43df-bd5d-d65e8565b2cb/collection/47424540-d5cccaff-e19b-4e99-a4b9-39eb02c9b2fe?action=share&source=copy-link&creator=47424540
 
