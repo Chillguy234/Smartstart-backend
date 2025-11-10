@@ -1,22 +1,35 @@
+//export const  = async (req, res, next) => {
+  // Disabled authentication
+  // Allow everyone to access all routes freely
+  //next();
+//};
+
+
 import jwt from "jsonwebtoken";
-import User from "../model/userModel.js"; // adjust if your folder name is 'models' or 'Model'
+import User from "../model/userModel.js";
 
 export const protect = async (req, res, next) => {
-  let token;
+  // ✅ Check if free mode is ON
+  if (process.env.FREE_MODE === "true") {
+    console.log("🟢 Free mode active: skipping authentication");
+    return next();
+  }
 
+  // 🔒 Otherwise, enforce authentication
+  let token;
   if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
     try {
       token = req.headers.authorization.split(" ")[1];
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       req.user = await User.findById(decoded.id).select("-password");
-      next();
+      return next();
     } catch (error) {
       console.error(error);
-      res.status(401).json({ message: "Not authorized, token failed" });
+      return res.status(401).json({ message: "Not authorized, token failed" });
     }
   }
 
   if (!token) {
-    res.status(401).json({ message: "Not authorized, no token" });
+    return res.status(401).json({ message: "Not authorized, no token" });
   }
 };
