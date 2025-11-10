@@ -16,7 +16,7 @@ import progressRoutes from "./routes/progressRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
 
-// Initialize env variables
+// Initialize environment variables
 dotenv.config();
 
 // Connect to MongoDB
@@ -26,9 +26,9 @@ const app = express();
 
 // Middleware
 app.use(cors());
-app.use(express.json()); // Body parser
+app.use(express.json()); // Body parser for JSON
 
-// Routes
+// Mount API routes
 app.use("/api/users", userRoutes);
 app.use("/api/employees", employeeRoutes);
 app.use("/api/hr", hrRoutes);
@@ -40,18 +40,24 @@ app.use("/api/progress", progressRoutes);
 app.use("/api/uploads", uploadRoutes);
 app.use("/api/messages", messageRoutes);
 
-// Default route
+// Default route for testing
 app.get("/", (req, res) => {
   res.send("Capstone Project HR API is running...");
 });
 
-// Handle 404
-app.use((req, res) => {
+// 404 handler for unknown routes
+app.use((req, res, next) => {
   res.status(404).json({ success: false, message: "Route not found" });
 });
 
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ success: false, message: "Server error" });
+});
+
 // Start server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; // Use Render's assigned port if available
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

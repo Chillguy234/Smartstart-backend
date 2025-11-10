@@ -1,4 +1,6 @@
+// routes/userRoutes.js
 import express from "express";
+import { protect } from "../middleware/authMiddleware.js";
 import {
   createUser,
   loginUser,
@@ -7,8 +9,6 @@ import {
   updateUser,
   deleteUser,
 } from "../controllers/userController.js";
-import { protect } from "../middleware/authMiddleware.js";
-import { authorizeRoles } from "../middleware/roleMiddleware.js";
 
 const router = express.Router();
 
@@ -17,9 +17,9 @@ router.post("/", createUser);
 router.post("/login", loginUser);
 
 // Protected routes
-router.get("/", protect, authorizeRoles("admin"), getAllUsers);
-router.get("/:id", protect, authorizeRoles("admin"), getUserById);
-router.put("/:id", protect, authorizeRoles("admin"), updateUser);
-router.delete("/:id", protect, authorizeRoles("admin"), deleteUser);
+router.get("/", protect, getAllUsers);
+router.get("/:id", protect, getUserById);
+router.put("/:id", protect, updateUser);
+router.delete("/:id", protect, deleteUser);
 
 export default router;
