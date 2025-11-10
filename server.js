@@ -36,9 +36,8 @@ app.get("/", (req, res) => {
   res.send("Welcome to the HR Capstone Project API");
 });
 
-//MongoDB connection
-mongoose
-  .connect(MONGO_URI)
+// Replace the broken/duplicated connect code with a single connect + async seeding
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(async () => {
     console.log("MongoDB connected successfully");
 
