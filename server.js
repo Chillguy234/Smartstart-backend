@@ -21,10 +21,11 @@ dotenv.config();
 
 // Display current auth mode on startup
 if (process.env.FREE_MODE === "true") {
-  console.log(" Server running in FREE MODE — authentication is disabled!");
+  console.log("🟢 Server running in FREE MODE — authentication is disabled!");
 } else {
-  console.log(" Server running in SECURE MODE — authentication is required.");
+  console.log("🔒 Server running in SECURE MODE — authentication is required.");
 }
+
 
 
 // Connect to MongoDB
